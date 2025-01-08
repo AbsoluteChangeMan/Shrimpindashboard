@@ -1,4 +1,4 @@
-const Harvest = require('../models/Harvest');
+const Harvest = require('../models/harvest.model');
 
 // Save multiple harvest entries to MongoDB
 const uploadNewData = async (entries) => {
