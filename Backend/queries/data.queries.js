@@ -10,6 +10,15 @@ const uploadNewData = async (entries) => {
   }
 };
 
+const clearData = async() => {
+    try{
+        await Harvest.deleteMany({});
+        console.log("Cleared entries")
+    } catch (e) {
+        throw new Error('Error clearing data: '+ e.message);
+    }
+}
+
 module.exports = {
-    uploadNewData,
+    uploadNewData, clearData,
 };

@@ -15,16 +15,19 @@ const uploadNewData = async (req, res) => {
     console.log(sheetData);
     // Transform sheet data to match the Harvest schema
     const harvestEntries = sheetData
-      .map((entry) => {
-        const value = parseFloat(entry["Value"]);
+    .map((entry) => {
+    const value = parseFloat(entry["Value"]);
         if (!isNaN(value)) {
-          return { value }; // Only include valid rows
+            return { value }; // Only include valid rows
         } else {
-          console.warn(`Skipping invalid row: ${JSON.stringify(entry)}`);
-          return null;
+            console.warn(`Skipping invalid row: ${JSON.stringify(entry)}`);
+            return null;
         }
-      })
-      .filter(Boolean); // Remove null entries
+    })
+    .filter(Boolean); // Remove null entries
+
+    // clear mongodb before upload 
+    await dataQueries.clearData();
 
     // Save to MongoDB
     const result = await dataQueries.uploadNewData(harvestEntries);
