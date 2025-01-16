@@ -12,7 +12,7 @@
   .upload-button {
     margin-left: 10px;
     padding: 5px 15px;
-    background-color: #007bff;
+    background-color: #ffd874;
     color: white;
     border: none;
     border-radius: 5px;
@@ -20,7 +20,7 @@
   }
   
   .upload-button:hover {
-    background-color: #0056b3;
+    background-color: #ac9250;
   }
   
   .response, .error {
