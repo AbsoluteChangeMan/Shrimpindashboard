@@ -12,7 +12,7 @@ const fs = require('fs');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-router.post('/upload', upload.single('file'), DataController.uploadNewData);
+router.post('/upload', upload.single('file'), DataController.uploadNewData); // receive excel file 
 
 
 module.exports = router
