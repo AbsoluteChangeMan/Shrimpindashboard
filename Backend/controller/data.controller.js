@@ -44,6 +44,20 @@ const uploadNewData = async (req, res) => {
   }
 };
 
+const clearData = async(req, res) => {
+  try {
+    await dataQueries.clearData();
+    res.status(200).json({
+      success: true,
+      message: "Data cleared successfully!",
+      data: result,
+    });
+  } catch (e) {
+    console.error(e)
+    res.status(500).json({ success: false, message: 'An error occurred while deleting the data.' })
+  }
+};
+
 module.exports = {
-    uploadNewData,
+    uploadNewData,clearData,
 };
